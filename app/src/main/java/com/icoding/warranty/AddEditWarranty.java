@@ -86,5 +86,12 @@ public class AddEditWarranty extends AppCompatActivity {
             }
         });
 
+        finish();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
     }
 }

@@ -5,15 +5,35 @@ import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+import com.icoding.warranty.data.WarrantyData;
+import com.icoding.warranty.data.WarrantyDataDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import java.util.List;
+
+import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 public class MainActivity extends AppCompatActivity {
+
+    private RecyclerView mRecyclerView;
+    private RecyclerView.LayoutManager mLayoutManager;
+    private WarrantyAdapter mAdapter;
+    WarrantyDataDatabase mDeviceDatabase;
+    Disposable compositeDisposable;
+    private List<WarrantyData> mDeviceList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +52,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this,AddEditWarranty.class));
             }
         });
+
+        mRecyclerView = findViewById(R.id.recyclerView);
+        mRecyclerView.setHasFixedSize(true);
+
+        mLayoutManager = new LinearLayoutManager(this);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mDeviceDatabase = Room.databaseBuilder(getApplicationContext(), WarrantyDataDatabase.class, "WarrantyData").build();
+
+        loadData();
     }
 
     @Override
@@ -55,4 +84,62 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    public void loadData() {
+        compositeDisposable = new CompositeDisposable();
+        compositeDisposable = mDeviceDatabase.getWarrantyDataDao().getWarranties().subscribe(new Consumer<List<WarrantyData>>() {
+
+            @Override
+            public void accept(List<WarrantyData> warranties) throws Exception {
+                //Log.e("data manager", "accept: data manager called async" + devices.size());
+                handleResponse(warranties);
+
+
+                //THIS WILL ADD OnItemClickListener
+//                RecycleClick.addTo(mRecyclerView).setOnItemClickListener(new RecycleClick.OnItemClickListener() {
+//                    @Override
+//                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+//                        //Device currentDevice = mDeviceList.get(position);
+//                        Toast.makeText(getApplicationContext(), "Clicked on postition " + position + " view " + devices.get(position).getName() + " " + devices.get(position).getId(),Toast.LENGTH_SHORT).show();
+//
+//
+//                        String deviceId = String.valueOf(devices.get(position).getId());
+//                        Intent intent = new Intent(ListDevices.this, EditDevice.class);
+//                        intent.setAction(deviceId);
+//                        startActivity(intent);
+//                    }
+//                });
+            }
+
+
+        });
+    }
+
+
+    public void handleResponse(List<WarrantyData> warranties) {
+
+        mAdapter = new WarrantyAdapter(warranties);
+
+        mRecyclerView.setAdapter(mAdapter);
+
+
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        compositeDisposable.dispose();
+    }
+
+    @Override
+    protected void onRestart() {
+        //workaround to refresh screen :D
+        super.onRestart();
+        finish();
+        startActivity(getIntent());
+
+    }
+
 }
