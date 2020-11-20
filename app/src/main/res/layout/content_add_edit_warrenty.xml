@@ -6,17 +6,19 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-
     <EditText
         android:id="@+id/wName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
         android:autoText="false"
+        android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/Name"
         android:inputType="textPersonName"
+        android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintBottom_toTopOf="@+id/wDescription"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,13 +26,15 @@
 
     <EditText
         android:id="@+id/wDate"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="45dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/Date"
         android:inputType="date"
+        android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintBottom_toTopOf="@+id/wDuration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -38,13 +42,15 @@
 
     <EditText
         android:id="@+id/wDuration"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:hint="@string/Duration"
         android:inputType="number"
+        android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,14 +58,16 @@
 
     <EditText
         android:id="@+id/wDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginRight="16dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/description"
         android:inputType="textMultiLine"
+        android:textColor="@color/design_default_color_on_primary"
         app:layout_constraintBottom_toTopOf="@+id/wDate"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

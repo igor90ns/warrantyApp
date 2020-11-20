@@ -58,14 +58,13 @@ public class AddEditWarranty extends AppCompatActivity {
         mWarrantyDataDatabase = Room.databaseBuilder(getApplicationContext(),WarrantyDataDatabase.class,"WarrantyData").build();
         FloatingActionButton fab = findViewById(R.id.fab);
         FloatingActionButton fab1 = findViewById(R.id.fab1);
+        fab1.setVisibility(View.INVISIBLE);
 
         if(warrantyIdString != null){
             int warrantyId = parseInt(warrantyIdString);
             loadWarranty(warrantyId);
+            fab1.setVisibility(View.VISIBLE);
         }
-
-
-
 
 
         fab.setOnClickListener(new View.OnClickListener() {
