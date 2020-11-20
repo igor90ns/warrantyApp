@@ -2,12 +2,13 @@ package com.icoding.warranty.data;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "Warrenties")
 public class WarrantyData {
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "deviceId")
+    @ColumnInfo(name = "warrentyId")
     public int mId;
 
     @ColumnInfo(name = "name")
@@ -23,6 +24,14 @@ public class WarrantyData {
     public int duration;
 
     public WarrantyData(String name, String description, String date, int duration) {
+        this.name = name;
+        this.description = description;
+        this.date = date;
+        this.duration = duration;
+    }
+    @Ignore
+    public WarrantyData(int id, String name, String description, String date, int duration) {
+        mId = id;
         this.name = name;
         this.description = description;
         this.date = date;

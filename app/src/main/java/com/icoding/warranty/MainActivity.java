@@ -3,6 +3,7 @@ package com.icoding.warranty;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.chootdev.recycleclick.RecycleClick;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.icoding.warranty.data.WarrantyData;
@@ -91,25 +92,25 @@ public class MainActivity extends AppCompatActivity {
         compositeDisposable = mDeviceDatabase.getWarrantyDataDao().getWarranties().subscribe(new Consumer<List<WarrantyData>>() {
 
             @Override
-            public void accept(List<WarrantyData> warranties) throws Exception {
+            public void accept(final List<WarrantyData> warranties) throws Exception {
                 //Log.e("data manager", "accept: data manager called async" + devices.size());
                 handleResponse(warranties);
 
 
                 //THIS WILL ADD OnItemClickListener
-//                RecycleClick.addTo(mRecyclerView).setOnItemClickListener(new RecycleClick.OnItemClickListener() {
-//                    @Override
-//                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
-//                        //Device currentDevice = mDeviceList.get(position);
-//                        Toast.makeText(getApplicationContext(), "Clicked on postition " + position + " view " + devices.get(position).getName() + " " + devices.get(position).getId(),Toast.LENGTH_SHORT).show();
-//
-//
-//                        String deviceId = String.valueOf(devices.get(position).getId());
-//                        Intent intent = new Intent(ListDevices.this, EditDevice.class);
-//                        intent.setAction(deviceId);
-//                        startActivity(intent);
-//                    }
-//                });
+                RecycleClick.addTo(mRecyclerView).setOnItemClickListener(new RecycleClick.OnItemClickListener() {
+                    @Override
+                    public void onItemClicked(RecyclerView recyclerView, int position, View v) {
+                        //Device currentDevice = mDeviceList.get(position);
+                        Toast.makeText(getApplicationContext(), "Clicked on postition " + position + " view " + warranties.get(position).getName() + " " + warranties.get(position).getId(),Toast.LENGTH_SHORT).show();
+
+
+                        String deviceId = String.valueOf(warranties.get(position).getId());
+                        Intent intent = new Intent(MainActivity.this, AddEditWarranty.class);
+                        intent.setAction(deviceId);
+                        startActivity(intent);
+                    }
+                });
             }
 
 
