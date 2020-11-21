@@ -1,75 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0B0B0B"
+    android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
     <EditText
         android:id="@+id/wName"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
         android:autoText="false"
-        android:background="#FFFFFF"
+        android:background="@drawable/rectangular_boxes"
         android:ems="10"
         android:hint="@string/Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/design_default_color_on_primary"
-        app:layout_constraintBottom_toTopOf="@+id/wDescription"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:inputType="text"
+        android:padding="30px"
+        android:textColor="@color/design_default_color_on_primary" />
 
     <EditText
         android:id="@+id/wDate"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/rectangular_boxes"
         android:ems="10"
         android:hint="@string/Date"
         android:inputType="date"
-        android:textColor="@color/design_default_color_on_primary"
-        app:layout_constraintBottom_toTopOf="@+id/wDuration"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wDescription" />
+        android:padding="30px"
+        android:textColor="@color/design_default_color_on_primary" />
 
     <EditText
         android:id="@+id/wDuration"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/rectangular_boxes"
         android:ems="10"
         android:hint="@string/Duration"
         android:inputType="number"
-        android:textColor="@color/design_default_color_on_primary"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wDate" />
+        android:padding="30px"
+        android:textColor="@color/design_default_color_on_primary" />
 
     <EditText
         android:id="@+id/wDescription"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="20dp"
         android:layout_marginRight="16dp"
+        android:background="@drawable/rectangular_boxes"
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/description"
         android:inputType="textMultiLine"
-        android:textColor="@color/design_default_color_on_primary"
-        app:layout_constraintBottom_toTopOf="@+id/wDate"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/wName" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:padding="30px"
+        android:textColor="@color/design_default_color_on_primary" />
+</LinearLayout>

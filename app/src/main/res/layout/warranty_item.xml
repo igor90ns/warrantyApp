@@ -8,6 +8,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@android:dimen/notification_large_icon_height"
+        android:layout_margin="10dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/round_corner"
         android:orientation="horizontal">
@@ -19,7 +20,7 @@
             android:layout_gravity="center_horizontal|center_vertical"
             android:background="@color/cardview_shadow_end_color"
             android:paddingStart="15dp"
-            app:srcCompat="@android:drawable/star_big_on" />
+            app:srcCompat="@drawable/icons8_receipt_48" />
 
         <TextView
             android:id="@+id/text_name"

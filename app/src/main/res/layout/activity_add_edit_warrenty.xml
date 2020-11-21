@@ -10,6 +10,7 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#222121"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <androidx.appcompat.widget.Toolbar
@@ -30,7 +31,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_menu_add" />
+        android:background="@drawable/circle"
+        app:backgroundTint="#222121"
+        app:borderWidth="1dp"
+        app:srcCompat="@drawable/icons8_plus_64" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab1"
@@ -39,6 +43,7 @@
         android:layout_gravity="bottom|left"
         android:layout_margin="@dimen/fab_margin"
         android:clickable="true"
-        app:srcCompat="@android:drawable/ic_delete" />
+        app:backgroundTint="#222121"
+        app:srcCompat="@drawable/icons8_minus_64" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
