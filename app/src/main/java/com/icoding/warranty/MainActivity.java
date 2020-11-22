@@ -19,6 +19,8 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
     WarrantyDataDatabase mDeviceDatabase;
     Disposable compositeDisposable;
     private List<WarrantyData> mDeviceList;
+    private TextView emptyTextView;
+    private ImageView emptyImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,7 +59,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mRecyclerView = findViewById(R.id.recyclerView);
+        emptyTextView =  findViewById(R.id.emptyTextView);
+        emptyImageView = findViewById(R.id.emptyImageView);
         mRecyclerView.setHasFixedSize(true);
+
+
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -124,6 +132,16 @@ public class MainActivity extends AppCompatActivity {
 
         mRecyclerView.setAdapter(mAdapter);
 
+        if (warranties.isEmpty()) {
+            mRecyclerView.setVisibility(View.GONE);
+            emptyTextView.setVisibility(View.VISIBLE);
+            emptyImageView.setVisibility(View.VISIBLE);
+        }
+        else {
+            mRecyclerView.setVisibility(View.VISIBLE);
+            emptyTextView.setVisibility(View.GONE);
+            emptyImageView.setVisibility(View.GONE);
+        }
 
 
     }
