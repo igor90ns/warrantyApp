@@ -8,61 +8,104 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
 
-    <EditText
-        android:id="@+id/wName"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:autoText="false"
-        android:background="@drawable/rectangular_boxes"
-        android:ems="10"
-        android:hint="@string/Name"
-        android:inputType="text"
-        android:padding="30px"
-        android:textColor="@color/design_default_color_on_primary" />
+        android:layout_height="match_parent"
+        android:background="#0B0B0B">
 
-    <EditText
-        android:id="@+id/wDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/rectangular_boxes"
-        android:ems="10"
-        android:hint="@string/Date"
-        android:inputType="date"
-        android:padding="30px"
-        android:textColor="@color/design_default_color_on_primary" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/wDuration"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/rectangular_boxes"
-        android:ems="10"
-        android:hint="@string/Duration"
-        android:inputType="number"
-        android:padding="30px"
-        android:textColor="@color/design_default_color_on_primary" />
+            <EditText
+                android:id="@+id/wName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:autoText="false"
+                android:background="@drawable/rectangular_boxes"
+                android:ems="10"
+                android:hint="@string/Name"
+                android:inputType="text"
+                android:padding="30px"
+                android:textColor="@color/design_default_color_on_primary" />
 
-    <EditText
-        android:id="@+id/wDescription"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="16dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/rectangular_boxes"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="@string/description"
-        android:inputType="textMultiLine"
-        android:padding="30px"
-        android:textColor="@color/design_default_color_on_primary" />
+            <EditText
+                android:id="@+id/wDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rectangular_boxes"
+                android:ems="10"
+                android:hint="@string/Date"
+                android:inputType="date"
+                android:padding="30px"
+                android:textColor="@color/design_default_color_on_primary" />
+
+            <EditText
+                android:id="@+id/wDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rectangular_boxes"
+                android:ems="10"
+                android:hint="@string/Duration"
+                android:inputType="number"
+                android:padding="30px"
+                android:textColor="@color/design_default_color_on_primary" />
+
+            <EditText
+                android:id="@+id/wDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/rectangular_boxes"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="@string/description"
+                android:inputType="textMultiLine"
+                android:padding="30px"
+                android:textColor="@color/design_default_color_on_primary" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="16dp"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/cameraButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="8dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rectangular_boxes"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    app:srcCompat="@drawable/icons8_camera_64" />
+
+                <ImageView
+                    android:id="@+id/imageView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="8dp"
+                    android:layout_weight="1"
+                    app:srcCompat="@drawable/icons8_no_image_64" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>
